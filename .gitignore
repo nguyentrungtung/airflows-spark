@@ -15,7 +15,6 @@ dags/
 
 ### Environment files
 .env
-.env.*
 .env.docker
 env/
 venv/
@@ -68,5 +67,9 @@ Thumbs.db
 ### Databases / local data
 *.db
 *.sqlite3
+
+### agent
+agent/
+CLAUDE.md
 
 # End
