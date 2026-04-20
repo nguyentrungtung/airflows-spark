@@ -1,0 +1,37 @@
+# Core Data Science
+pandas==2.1.4
+requests==2.31.0
+numpy==1.26.3
+
+# Airflow Providers
+apache-airflow-providers-apache-spark
+apache-airflow-providers-jdbc
+apache-airflow-providers-ssh
+apache-airflow-providers-common-sql
+apache-airflow-providers-openlineage
+apache-airflow-providers-amazon
+# ADDED: Postgres provider
+apache-airflow-providers-postgres
+# ADDED: MySQL provider
+apache-airflow-providers-mysql
+
+# Storage & Filesystems
+s3fs
+fsspec
+
+# Spark & Thrift
+pyspark==3.5.3
+grpcio-status>=1.48.2
+
+# Thrift / Hive connectivity
+pure-sasl>=0.6.2
+thrift>=0.10.0
+thrift_sasl>=0.4.3
+pyhive>=0.7.0
+
+# dbt - transformation layer (Silver/Gold)
+# dbt-spark[PyHive] kết nối qua Spark Thrift Server (:10000) dùng pyhive ở trên
+# dbt-core và dbt-spark PHẢI cùng minor version (1.10.x)
+# dbt-spark 1.11.x chưa release → dùng 1.10.x là latest stable pair
+dbt-core>=1.10.0,<1.11.0
+dbt-spark[PyHive]>=1.10.0,<1.11.0

@@ -1,0 +1,72 @@
+# .gitignore cho project Airflow
+
+### Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+### Logs
+*.log
+*.logs
+logs/
+
+### dags
+dags/
+
+### Environment files
+.env
+.env.*
+.env.docker
+env/
+venv/
+.venv/
+ENV/
+
+### Configs and secrets
+# *.config
+# .config/
+# secrets/
+# secrets.*
+# *.key
+# *.pem
+
+### Scripts
+*.script
+script/
+scripts/
+.scripts/
+
+### Airflow & project specific
+airflow.cfg
+.airflowignore
+
+### Docker
+docker-compose.override.yml
+Dockerfile.*
+
+### Build / Packaging
+build/
+dist/
+*.egg-info/
+
+### IDEs and editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+### OS files
+.DS_Store
+Thumbs.db
+
+### Jupyter
+.ipynb_checkpoints/
+
+### Testing
+.pytest_cache/
+
+### Databases / local data
+*.db
+*.sqlite3
+
+# End
