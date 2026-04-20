@@ -8,10 +8,10 @@ __pycache__/
 ### Logs
 *.log
 *.logs
-logs/
+# logs/
 
 ### dags
-dags/
+# dags/
 
 ### Environment files
 .env
@@ -31,9 +31,9 @@ ENV/
 
 ### Scripts
 *.script
-script/
-scripts/
-.scripts/
+# script/
+# scripts/
+# .scripts/
 
 ### Airflow & project specific
 airflow.cfg
