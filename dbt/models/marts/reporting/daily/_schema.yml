@@ -1,0 +1,5 @@
+version: 2
+
+# Đặt các model báo cáo ngày tại đây
+# Ví dụ: rpt_daily_cert_summary.sql, rpt_daily_new_companies.sql
+models: []

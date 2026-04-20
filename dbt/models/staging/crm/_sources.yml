@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: crm
+    description: "Dữ liệu CRM từ MinIO Iceberg — namespace stg_crm_v2"
+    database: iceberg
+    schema: "default.stg_crm_v2"
+    tables:
+      - name: customers
+      - name: contracts
+      # thêm table mới vào đây

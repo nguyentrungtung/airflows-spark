@@ -1,0 +1,65 @@
+name: analytics
+version: '1.0.0'
+config-version: 2
+
+profile: analytics
+
+model-paths: ["models"]
+macro-paths: ["macros"]
+test-paths:  ["tests"]
+
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
+
+# ─────────────────────────────────────────────
+# MODEL CONFIGS — theo đúng folder hierarchy
+# ─────────────────────────────────────────────
+models:
+  analytics:
+
+    # STAGING: luôn là view, không ghi Iceberg file
+    # Mỗi sub-folder = 1 source system
+    staging:
+      +materialized: view
+      +tags: ['staging']
+      office:
+        +schema: stg_office
+      crm:
+        +schema: stg_crm
+      mysql:
+        +schema: stg_mysql
+      postgres:
+        +schema: stg_postgres
+
+    # INTERMEDIATE: view (đổi thành table nếu query nặng)
+    # Mỗi sub-folder = 1 business domain
+    intermediate:
+      +materialized: view
+      +tags: ['intermediate']
+      office:
+        +schema: int_office
+      crm:
+        +schema: int_crm
+
+    # MARTS: ghi Iceberg table thật — output cuối cùng
+    marts:
+      +materialized: table
+      +file_format: iceberg
+      +format_version: 2
+      +tags: ['mart']
+      office:
+        +schema: mart_office
+      crm:
+        +schema: mart_crm
+      reporting:
+        +schema: mart_reporting
+        daily:
+          +tags: ['mart', 'reporting', 'daily']
+        monthly:
+          +tags: ['mart', 'reporting', 'monthly']
+
+# ─────────────────────────────────────────────
+# VARIABLES — thay đổi tại đây, không sửa SQL
+# ─────────────────────────────────────────────
+vars:
+  source_upload_date: "upload_20260416"

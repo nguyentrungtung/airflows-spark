@@ -1,0 +1,50 @@
+version: 2
+
+models:
+  - name: fct_cn_sap_xep
+    description: "Bảng chứng nhận sắp xếp đã format ngày, tính vị trí ĐÌNH CHỈ"
+    columns:
+      - name: id
+        description: "Primary key"
+        tests:
+          - not_null
+          - unique
+
+      - name: cong_ty
+        tests:
+          - not_null
+
+      - name: loai_chung_nhan
+        description: "Loại chứng nhận: 9001, 13485, gmp, haccp, ..."
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - '13485'
+                - '14001'
+                - '22000'
+                - '22716'
+                - '27001'
+                - '45001'
+                - '5s'
+                - '9001'
+                - 'gmp'
+                - 'haccp'
+                - 'qcvn'
+                - 'san_pham'
+                - '11041_22017'
+                - 'vietgahp'
+                - 'vietgap'
+
+      - name: ngay_cap
+        description: "Ngày cấp chứng nhận định dạng dd-MM-yyyy hoặc rỗng"
+
+      - name: co_dinh_chi
+        description: "true nếu có ít nhất 1 cột ĐÌNH CHỈ"
+        tests:
+          - not_null
+
+      - name: last_dc_pos
+        description: "Vị trí cột ĐÌNH CHỈ cuối cùng (0 = không có)"
+        tests:
+          - not_null

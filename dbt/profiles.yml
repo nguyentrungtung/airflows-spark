@@ -1,0 +1,17 @@
+analytics:
+  target: prod
+  outputs:
+    prod:
+      type: spark
+      method: thrift
+      host: 45.32.102.67
+      port: 10000
+      schema: default
+      user: spark
+      password: "7ea8ca7860cbfc95ad0f04ab8174afcec3eafc1e993c0e2e6b2171bbda5e1658"
+      auth: CUSTOM
+      transport_mode: http
+      http_path: cliservice
+      connect_timeout: 10
+      connect_retries: 3
+      threads: 4

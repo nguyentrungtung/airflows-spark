@@ -1,0 +1,39 @@
+version: 2
+
+sources:
+  - name: cn_sap_xep
+    description: "Bảng chứng nhận sắp xếp đã clear column — raw từ upload Iceberg"
+    database: iceberg
+    # dbt-spark: schema = namespace phân cách bằng dấu chấm
+    schema: "office.{{ var('source_upload_date') }}.cn_sap_xep_clear_col"
+    tables:
+      - name: tbl_13485
+        description: "Chứng nhận loại 13485"
+      - name: tbl_14001
+        description: "Chứng nhận loại 14001"
+      - name: tbl_22000
+        description: "Chứng nhận loại 22000"
+      - name: tbl_22716
+        description: "Chứng nhận loại 22716"
+      - name: tbl_27001
+        description: "Chứng nhận loại 27001"
+      - name: tbl_45001
+        description: "Chứng nhận loại 45001"
+      - name: tbl_5s
+        description: "Chứng nhận loại 5S"
+      - name: tbl_9001
+        description: "Chứng nhận loại 9001"
+      - name: tbl_gmp
+        description: "Chứng nhận GMP"
+      - name: tbl_haccp
+        description: "Chứng nhận HACCP"
+      - name: tbl_qcvn
+        description: "Chứng nhận QCVN"
+      - name: tbl_san_pham
+        description: "Chứng nhận sản phẩm"
+      - name: tbl_tcvn_11041_22017
+        description: "Chứng nhận TCVN 11041/22017"
+      - name: tbl_vietgahp
+        description: "Chứng nhận VietGAHP"
+      - name: tbl_vietgap
+        description: "Chứng nhận VietGAP"

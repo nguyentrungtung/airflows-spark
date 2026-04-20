@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: mysql_erp
+    description: "Dữ liệu ERP từ MySQL — đã được Airflow ingest vào Iceberg"
+    database: iceberg
+    schema: "default.stg_mysql_erp"
+    tables: []
+    # thêm table khi có ingest mới
